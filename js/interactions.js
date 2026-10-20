@@ -43,13 +43,32 @@ const updateHistogram = (filterId, data) => {
         .attr("height", d => innerHeight - yScale(d.length));
 };
 
-// T06-2 Step 3: Creating a tooltip and adding function call to load-data.js
+// T06-2 Step 3.2: Append tooltip to innerChartS
 const createTooltip = () => {
-    // Step 3.2 Append (a hidden) tooltip to innerChart
 
-    // Step 3.3 Append tooltip background rectangle
-
-    // Step 3.4 Apped tooltip text
+    const tooltip = innerChartS
+        .append("g")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+    // T06-2 Step 3.3: Add tooltip background rectangle
+    tooltip
+        .append("rect")
+        .attr("width", tooltipWidth)
+        .attr("height", tooltipHeight)
+        .attr("rx", 3)
+        .attr("ry", 3)
+        .attr("fill", barColor)
+        .attr("fill-opacity", 0.75);
+    // T06-2 Step 3.4: Append tooltip text
+    tooltip
+        .append("text")
+        .text("NA")
+        .attr("x", tooltipWidth / 2)
+        .attr("y", tooltipHeight / 2)
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("fill", "white")
+        .style("font-weight", 900);
 
 };
 
